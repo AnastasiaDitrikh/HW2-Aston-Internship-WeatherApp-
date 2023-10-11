@@ -1,4 +1,4 @@
-package work;
+package weather;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class WeatherForecast {
+public class WeatherInfo {
     /**
      * Метод получает информацию с сайта погоды в формате строки(JSON)
      * @return метод возвращает ответ со страницы сайта
@@ -16,9 +16,9 @@ public class WeatherForecast {
         String apiKey = "a7c02aae-d41d-4948-829a-1257a7a51f59";
         double lat=45.043315;
         double lon=41.969111;
-        int limit = 1;
+        int limit = 2;
         String lang = "ru_RU";
-        boolean hours = false;
+        boolean hours = true;
         boolean extra = false;
         String responseFromAPI="";
 

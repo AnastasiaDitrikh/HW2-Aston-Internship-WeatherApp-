@@ -1,7 +1,8 @@
-package work;
+package weather.file;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import weather.WeatherInfo;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -15,7 +16,8 @@ public class WeatherDataExtractor {
     public static void main(String[] args) {
 
         final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        String jsonString = WeatherForecast.getInfo();
+        String jsonString = WeatherInfo.getInfo();
+//        System.out.println(jsonString);
         try {
             // Создание файла для записи результатов
             FileWriter fileWriter = new FileWriter("output.txt");
@@ -62,7 +64,6 @@ public class WeatherDataExtractor {
             fileWriter.write("Прогноз: " + "\n");
             fileWriter.write("Дата: " + date + "\n");
 
-            // Закрытие файла
             fileWriter.close();
 
             System.out.println("Данные успешно извлечены и записаны в файл.");
