@@ -38,8 +38,7 @@ public class MainServlet extends HttpServlet {
         session.setAttribute("Влажность: ", data.getHumidity());
 
 
-        resp.setContentType("text/html,charset=UTF-8");
-        resp.setCharacterEncoding("UTF-8");
+        resp.setContentType("text/html");
         PrintWriter printWriter = resp.getWriter();
 
 

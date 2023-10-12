@@ -7,23 +7,22 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class WeatherData {
+    SourceData sourceInfo= new SourceData(45.043315,41.969111,
+            2, "en_US", true, false);
+    String apiKey = "a7c02aae-d41d-4948-829a-1257a7a51f59";
+    String header = "X-Yandex-API-Key";
+    String url = "https://api.weather.yandex.ru/v2/forecast?"+"lat=" + sourceInfo.getLat() +
+            "&lon=" + sourceInfo.getLon() +
+            "&lang=" + sourceInfo.getLang() +
+            "&limit=" + sourceInfo.getLimit() +
+            "&hours=" + sourceInfo.isHours() +
+            "&extra=" + sourceInfo.isExtra();
     /**
      * Метод получает информацию с сайта погоды в формате строки(JSON)
      * @return метод возвращает ответ со страницы сайта
      */
-    public static String getInfo(){
-        String apiKey = "a7c02aae-d41d-4948-829a-1257a7a51f59";
-        String header = "X-Yandex-API-Key";
+    public String getInfo(){
         String responseFromAPI="";
-        SourceData sourceInfo= new SourceData(45.043315,41.969111,
-                2, "en_US", true, false);
-        String url = "https://api.weather.yandex.ru/v2/forecast?lat=" + sourceInfo.getLat() +
-                "&lon=" + sourceInfo.getLon() +
-                "&lang=" + sourceInfo.getLang() +
-                "&limit=" + sourceInfo.getLimit() +
-                "&hours=" + sourceInfo.isHours() +
-                "&extra=" + sourceInfo.isExtra();
-
         try {
             URL apiUrl = new URL(url);
             HttpURLConnection connection = (HttpURLConnection) apiUrl.openConnection();

@@ -22,10 +22,6 @@ public class WeatherDataRecorderInFile {
             fileWriter.write("Направление ветра: " + data.getWindDir() + "\n");
             fileWriter.write("Давление, мм: " + data.getPressure() + "\n");
             fileWriter.write("Влажность: " + data.getHumidity() + "\n");
-            fileWriter.write("\n");
-//            fileWriter.write("Прогноз: " + "\n");
-//            fileWriter.write("Дата: " + date + "\n");
-
             fileWriter.close();
 
             System.out.println("Данные успешно извлечены и записаны в файл.");

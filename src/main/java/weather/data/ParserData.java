@@ -9,9 +9,9 @@ import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 
 public class ParserData {
-
+    private final WeatherData data = new WeatherData();
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-    private final String jsonString = WeatherData.getInfo();
+    private final String jsonString = data.getInfo();
     JSONObject jsonObject = new JSONObject(jsonString);
 
     /**
