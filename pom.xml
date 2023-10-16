@@ -7,8 +7,7 @@
     <groupId>groupId</groupId>
     <artifactId>HW2-Aston-Internship-WeatherApp-</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
-
+    <packaging>jar</packaging>
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
@@ -35,11 +34,6 @@
 
 
   <dependencies>
-    <dependency>
-        <groupId>org.jsoup</groupId>
-        <artifactId>jsoup</artifactId>
-        <version>1.16.1</version>
-    </dependency>
       <dependency>
           <groupId>com.fasterxml.jackson.core</groupId>
           <artifactId>jackson-databind</artifactId>
@@ -61,23 +55,46 @@
           <version>4.0.1</version>
       </dependency>
       <dependency>
+          <groupId>org.projectlombok</groupId>
+          <artifactId>lombok</artifactId>
+          <version>1.18.28</version>
+      </dependency>
+<!--      <dependency>-->
+<!--          <groupId>com.h2database</groupId>-->
+<!--          <artifactId>h2</artifactId>-->
+<!--          <scope>runtime</scope>-->
+<!--      </dependency>-->
+      <dependency>
+          <groupId>org.postgresql</groupId>
+          <artifactId>postgresql</artifactId>
+          <version>42.5.4</version>
+      </dependency>
+      <dependency>
           <groupId>org.junit.jupiter</groupId>
-          <artifactId>junit-jupiter</artifactId>
-          <version>5.8.1</version>
-          <scope>test</scope>
-      </dependency>
-      <dependency>
-          <groupId>org.mockito</groupId>
-          <artifactId>mockito-core</artifactId>
-          <version>5.3.1</version>
-          <scope>test</scope>
-      </dependency>
-      <dependency>
-          <groupId>org.mockito</groupId>
-          <artifactId>mockito-junit-jupiter</artifactId>
-          <version>5.3.1</version>
+          <artifactId>junit-jupiter-api</artifactId>
+          <version>5.8.2</version>
           <scope>test</scope>
       </dependency>
 
+      <!--      <dependency>-->
+<!--          <groupId>org.mockito</groupId>-->
+<!--          <artifactId>mockito-core</artifactId>-->
+<!--          <version>4.5.1</version>-->
+<!--          <scope>test</scope>-->
+<!--      </dependency>-->
+<!--      <dependency>-->
+<!--          <groupId>org.junit.jupiter</groupId>-->
+<!--          <artifactId>junit-jupiter-api</artifactId>-->
+<!--          <version>5.8.2</version>-->
+<!--          <scope>test</scope>-->
+<!--      </dependency>-->
+<!--      <dependency>-->
+<!--          <groupId>org.mockito</groupId>-->
+<!--          <artifactId>mockito-junit-jupiter</artifactId>-->
+<!--          <version>4.5.1</version>-->
+<!--          <scope>test</scope>-->
+<!--      </dependency>-->
+
   </dependencies>
+
 </project>

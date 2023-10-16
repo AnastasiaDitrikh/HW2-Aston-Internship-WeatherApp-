@@ -1,20 +1,28 @@
-package weather.file;
+package file;
 
+import weather.service.AnalysisWeatherService;
+import weather.service.WeatherService;
 import weather.data.ParserData;
+import weather.model.WeatherModel;
 
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class WeatherDataRecorderInFile {
+
+
     /**
-     * Создание файла и запись результатов в файл
+     * Создание файла и запись результатов в файл и БД
      */
     public static void main(String[] args) {
-        ParserData data = new ParserData();
-        try {
-            FileWriter fileWriter = new FileWriter("output.txt");
+        WeatherModel data = new ParserData().getWeatherModelFromSite();
+        WeatherService weatherService = WeatherService.getWeatherService();
+        AnalysisWeatherService analysisWeatherService = AnalysisWeatherService.getAnalysisWeatherService();
 
-            fileWriter.write("Дата: " + data.getFormattedTime() + "\n");
+        try {
+            //weatherService.save(data);
+            FileWriter fileWriter = new FileWriter("output.txt");
+            fileWriter.write("Дата: " + data.getDateTime() + "\n");
             fileWriter.write("Город: " + data.getLocality() + "\n");
             fileWriter.write("Регион: " + data.getLocalityProvince() + "\n");
             fileWriter.write("Температура: " + data.getTemp() + "\n");

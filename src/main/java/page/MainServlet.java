@@ -1,6 +1,7 @@
-package weather.page;
+package page;
 
 import weather.data.ParserData;
+import weather.model.WeatherModel;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,7 +13,7 @@ import java.io.PrintWriter;
 
 @WebServlet("/weather")
 public class MainServlet extends HttpServlet {
-    ParserData data = new ParserData();
+    private final WeatherModel data = new ParserData().getWeatherModelFromSite();
 
     /**
      * Метод формирует response на get запрос
@@ -28,7 +29,7 @@ public class MainServlet extends HttpServlet {
             visitCounter++;
         }
 
-        session.setAttribute("Дата: ", data.getFormattedTime());
+        session.setAttribute("Дата: ", data.getDateTime());
         session.setAttribute("Город: ", data.getLocality());
         session.setAttribute("Регион: ", data.getLocalityProvince());
         session.setAttribute("Температура: ", data.getTemp());
@@ -42,7 +43,7 @@ public class MainServlet extends HttpServlet {
         PrintWriter printWriter = resp.getWriter();
 
 
-        printWriter.write("Date: " + data.getFormattedTime() + "<br>");
+        printWriter.write("Date: " + data.getDateTime() + "<br>");
         printWriter.write("City: " + data.getLocality() + "<br>");
         printWriter.write("Region: " + data.getLocalityProvince() + "<br>");
         printWriter.write("Temperature: " + data.getTemp() + "<br>");
@@ -52,5 +53,6 @@ public class MainServlet extends HttpServlet {
         printWriter.write("Humidity: " + data.getHumidity() + "<br>");
         printWriter.write("Page was visited " + visitCounter + " times." + "<br>");
         printWriter.close();
+
     }
 }

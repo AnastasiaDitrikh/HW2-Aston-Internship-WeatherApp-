@@ -1,4 +1,4 @@
-package weather.page;
+package page;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
