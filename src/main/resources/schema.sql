@@ -10,3 +10,11 @@ CREATE TABLE IF NOT EXISTS weather
     pressure          NUMERIC      NOT NULL,
     humidity          NUMERIC      NOT NULL
     );
+
+CREATE TABLE IF NOT EXISTS user
+(
+    id                BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY UNIQUE,
+    login             VARCHAR(50) NOT NULL,
+    email             VARCHAR(100) NOT NULL,
+    password          VARCHAR(20) NOT NULL
+    );
